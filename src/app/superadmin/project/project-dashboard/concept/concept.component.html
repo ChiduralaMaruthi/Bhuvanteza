@@ -1,0 +1,77 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+      <div class="col-lg-4" style="background-color:honeydew;">
+          <h3 style="text-align: center;">Geology</h3>
+        <div fxLayout="row wrap" style="margin-top: 20px !important;">
+          <div class="col-sm-7">
+              <div class="file btn btn-lg btn-primary pull-left upload" >
+                  <mat-icon class="upload-icon">cloud_upload</mat-icon> Upload File
+                  <input style="cursor: pointer !important" class="file" type="file" name="file" (change)="handleFileSelect($event)" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+              </div>
+          </div>
+          <div class="col-sm-5"style="margin-top:10px">
+              <a title="View Document"  target="_blank" href="http://africau.edu/images/default/sample.pdf" style="cursor: pointer;color:#337ab7;margin-right: 10px;margin-left: 10px !important;font-size: 19px !important;margin-top: 2px;">View Document</a>
+            </div>
+        </div>
+        <div fxLayout="row wrap" style="margin-top: 20px !important;">
+            <label style="
+            margin-bottom: 10px !important;
+            margin-left: 5px;">Enter Notes:</label>
+          </div>
+          <textarea style="width: 100%;margin-bottom: 30px;" class="area" rows="5" class="form-control txtarea" id="addSubject"
+          name="addSubject" placeholder="Enter Notes"></textarea>
+          <div fxLayout="row wrap"class="pull-right">
+            <button class="pull-right btn-primary" style="margin-right: 10px !important" mat-raised-button><mat-icon>send</mat-icon>&nbsp;Save</button>
+          </div>
+      </div>
+      <div class="col-lg-4" style="background-color:blanchedalmond;" >
+        <h3 style="text-align: center;">Plan</h3>
+        <div fxLayout="row wrap" style="margin-top: 20px !important;">
+            <div class="col-sm-7">
+                <div class="file btn btn-lg btn-primary pull-left upload" >
+                    <mat-icon class="upload-icon">cloud_upload</mat-icon> Upload File
+                    <input style="cursor: pointer !important" class="file" type="file" name="file" (change)="handleFileSelect($event)" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+                </div>
+            </div>
+            <div class="col-sm-5" style="margin-top:10px">
+                <a title="View Document"  target="_blank" href="http://africau.edu/images/default/sample.pdf" style="cursor: pointer;color:#337ab7;margin-right: 10px;margin-left: 10px !important;font-size: 19px !important;margin-top: 2px;">View Document</a>
+              </div>
+          </div>
+          <div fxLayout="row wrap" style="margin-top: 20px !important;">
+              <label style="
+              margin-bottom: 10px !important;
+              margin-left: 5px;">Enter Notes</label>
+            </div>
+            <textarea style="width: 100%;margin-bottom: 30px;"rows="5" class="form-control txtarea" id="addSubject"
+            name="addSubject" placeholder="Enter Notes"></textarea>
+            <div fxLayout="row wrap"class="pull-right">
+              <button class="pull-right btn-primary" style="margin-right: 10px !important" mat-raised-button><mat-icon>send</mat-icon>&nbsp;Save</button>
+            </div>
+      </div>
+      <div class="col-lg-4" style="background-color:azure;">
+        <h3 style="text-align: center;">Material</h3>
+        <div fxLayout="row wrap" style="margin-top: 20px !important;">
+            <div class="col-sm-7">
+                <div class="file btn btn-lg btn-primary pull-left upload" >
+                    <mat-icon class="upload-icon">cloud_upload</mat-icon> Upload File
+                    <input style="cursor: pointer !important" class="file" type="file" name="file" (change)="handleFileSelect($event)" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+                </div>
+            </div>
+            <div class="col-sm-5"style="margin-top:10px">
+                <a title="View Document"  target="_blank" href="http://africau.edu/images/default/sample.pdf" style="cursor: pointer;color:#337ab7;margin-right: 10px;margin-left: 10px !important;font-size: 19px !important;margin-top: 2px;">View Document</a>
+              </div>
+          </div>
+          <div fxLayout="row wrap" style="margin-top: 20px !important;">
+              <label style="
+              margin-bottom: 10px !important;
+              margin-left: 5px;">Enter Notes</label>
+            </div>
+            <textarea style="width: 100%;margin-bottom: 30px;"rows="5" class="form-control txtarea" id="addSubject"
+            name="addSubject" placeholder="Enter Notes"></textarea>
+            <div fxLayout="row wrap"class="pull-right">
+              <button class="pull-right btn-primary" style="margin-right: 10px !important" mat-raised-button><mat-icon>send</mat-icon>&nbsp;Save</button>
+            </div>
+      </div>
+    </div>
+  </div>
+  

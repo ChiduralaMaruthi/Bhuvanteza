@@ -1,0 +1,138 @@
+<div fxLayout="row wrap" >
+  <div class="w-100">
+      <div class="flex-p">
+          <div class="row wrap">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="w-100 flex-p">
+                  </div>
+              </div>
+              <div class="col-xs-6"  style="margin-right:0px !important">
+                  <div class="w-100 flex-p">
+                      <button mat-raised-button class="pull-right btn-primary" (click)="opensaleDialog(null)">
+                          <mat-icon>add</mat-icon> Add
+                          Sale
+                      </button>
+                      <button mat-raised-button color="primary" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+                          <mat-icon>filter_list</mat-icon> Filter
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row ">
+          <div class="col-xs-6">
+          </div> 
+      </div>
+      <div fxLayout="row wrap" *ngIf="filterToggle">
+          <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p">
+              <mat-card class="filter">
+                  <mat-card-content>
+                      <div class="row col-sm-12">
+                          <div class="col-sm-5">
+                              <div class="col-sm-5 newMarginClass">
+                                  Search by Date:
+                              </div>
+                              <div class="col-sm-7">
+                                <input class="form-control" placeholder="Select Date" class="form-control" id="db" [owlDateTimeTrigger]="dt1"
+                                [owlDateTime]="dt1" name="dt1" required>
+                              <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+                              </div>
+                          </div>
+                          <div class="col-sm-5">
+                          </div>
+                          <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                              <button class="add-hover btn btn-success" (click)="filterToggle = !filterToggle">Search</button>
+                          </div>
+                          <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="margin-left: -18px;" >
+                              <button class="btn filter-hover" style="background-color:#37474f; color:#fff !important" (click)="filterToggle = !filterToggle">Clear</button>
+                          </div>
+                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
+                      </div>
+                      <!-- <div class="row">
+                          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                              <input type="text" class="form-control" placeholder="Search by Name">
+                          </div>
+                          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                              <select class="form-control">
+                                  <option disabled selected value> -- Select Status -- </option>
+                                  <option>Active</option>
+                                  <option>Inactive</option>
+                              </select>
+                          </div>
+                          <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                              <button class="add-hover btn btn-success">Search</button>
+                          </div>
+                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+                          
+                      </div> -->
+                  </mat-card-content>
+              </mat-card>
+          </div>
+      </div>
+      <div fxLayout="row wrap" style="margin-top:-5px;">
+          <div class="table-responsive w-100 flex-p">
+              <table id="example2" class="table table-bordered table-hover">
+                  <thead class="tbl-head">
+                      <tr class="tr-grid-header">
+                          <!-- <th><input type="checkbox" name="select_all" [(ngModel)]="selectedAll" (change)="selectAll();"/></th> -->
+                          <th>Agent Name</th>
+                          <th>Units Sold</th>
+                          <th>Project</th>
+                          <th>Date of Sale</th>
+                          <th class="text-center">Status</th>
+                          <th class="text-center">Actions</th>
+                      </tr>
+                  </thead>
+                  <tbody>                                
+                      <tr *ngFor="let contact of contacts">
+                          <!-- <td><input type="checkbox" name="select_single" [(ngModel)]="contact.selected" (change)="checkIfAllSelected();"></td> -->
+                          <td>
+                              {{contact.name}}
+                          </td>
+                          <td>{{contact.unit}}</td>
+                           <td>{{contact.company}}</td>
+                           <td>09/08/2020</td>
+                          <td class="text-center">
+                              <a 
+                              [ngClass]="contact.is_active ? 'status' : 'status Red'"
+                              mwlConfirmationPopover
+                              [popoverTitle]="popoverStatusTitle"
+                              [popoverMessage]="popoverStatusMessage"
+                              placement="left"
+                              (confirm)="updateContactStatus(contact.contact_id, !contact.is_active, 'status')"
+                              (cancel)="cancelClicked = true">
+                              {{contact.is_active?'Active':'Inactive'}}
+                          </a>
+                      </td>
+                      <td class="text-center">
+                          <a title="Edit contact" style="margin-right: 10px; cursor: pointer;" (click)="opensaleDialog(null)">
+                              <i class="fa fa-edit"></i>
+                          </a>
+                          <a mwlConfirmationPopover
+                          [popoverTitle]="popoverTitle"
+                          [popoverMessage]="popoverMessage"
+                          placement="left"
+                          (confirm)="updateContactStatus(contact.contact_id, !contact.is_delete, 'delete')"
+                          (cancel)="cancelClicked = true">
+                          <i style="cursor: pointer;" title="Delete Contact" class="fa fa-trash red"></i>
+                      </a>
+                      
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+</div>
+</div>
+<!-- <div *ngIf="contacts" fxLayout="row wrap">
+  <div fxFlex="100" class="flex-p">
+      <mat-card class="p-0 text-center">
+          <pagination-controls class="gradus-pagination" autoHide="true" maxSize="3" (pageChange)="onPageChanged($event)"></pagination-controls>
+      </mat-card>
+  </div>
+</div> -->
+
+<div *ngIf="!contacts" fxLayout="column" fxLayoutAlign="center center" class="contact-spinner">
+  <mat-spinner color="primary"></mat-spinner>
+</div> 

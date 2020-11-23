@@ -1,0 +1,67 @@
+
+<div class="row">
+  <div class="col-xs-12">
+  <div id="grid-table-container" class="table-responsive">
+  <table matSort id="example2" class="table table-bordered table-hover">
+  <thead class="tbl-head">
+  <tr>
+  <th >Agent Name</th>
+  <th class="text-center">Project</th>
+  <th class="text-center">Up Level</th>
+  <th class="text-center">Rank</th>
+  <th class="text-center">Date due</th>
+  <th class="text-center">Date Paid</th>
+  <th class="text-center">Date Earned</th>
+  <th class="text-center">Commission (Rs/SFT)</th>
+  <th class="text-center">Amount Payable</th>
+  <th class="text-center">Amount Paid </th>
+  <th class="text-center">Balance</th>
+  
+ 
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of items">
+  <td style="min-width: 70px !important;">
+  {{item.AN}}
+  
+  </td>
+  <!-- <td style="text-align: center!important;">{{item.projectNumber}}</td> -->
+  <td style="text-align: center!important;">{{item.P}}</td>
+  <td style="text-align: center!important;">{{item.Category}}</td>
+  <td style="text-align: center!important;">{{item.Rank}}</td>
+  <td style="text-align: center!important;">{{item.DD}}</td>
+  <td style="text-align: center!important;">
+  {{item.DP}}
+  
+  </td>
+  <td style="text-align: center!important;">
+  {{item.DE}}
+  
+  </td>
+  <td style="text-align: center!important;">
+  {{item.C}}
+  
+  </td>
+  <td style="text-align: center!important;">
+  {{item.AP}}
+  </td>
+  <td style="text-align: center!important;">
+  {{item.APP}}
+  
+  </td>
+  <td style="text-align: center!important;">{{item.B}}</td>
+
+  
+ 
+  </tr>
+  
+  </tbody>
+  </table>
+  
+  <!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)"
+  showFirstLastButtons></mat-paginator> -->
+  </div>
+  </div>
+  </div>
